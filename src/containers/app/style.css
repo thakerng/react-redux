@@ -1,0 +1,27 @@
+body{
+	background-color: #2a292a;
+	margin: 0;
+}
+
+button{
+	color: red;
+}
+
+.content{
+	width: 70%;
+	margin: auto;
+	background-color: #4c4845; 
+	height: auto;
+}
+
+input{
+	text-align: center;
+	width: 70%;
+	margin: 25px auto;
+}
+
+.fillbox{
+	width: 50%;
+	color: red;
+}
+

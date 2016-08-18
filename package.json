@@ -1,0 +1,22 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1"
+  },
+  "dependencies": {
+    "babel-cli": "^6.11.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "path": "^0.12.7",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
+  }
+}
