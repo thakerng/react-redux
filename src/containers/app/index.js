@@ -1,35 +1,55 @@
 import React from 'react';
-// import CSSModules from 'react-css-modules';
 import TodoList from '../../components/todo-list';
-import style from './style.css';
-
+import AddList from '../../components/add-list';
+import Footer from '../../components/footer';
+import {connect} from 'react-redux';
+import * as TodoActions from '../../actions/todoActions';
+import {bindActionCreators} from 'redux';
+import style from './style.css'
+@connect(
+    (state)=>({ ...state.todo }),
+    (dispatch)=>({ actions: bindActionCreators(TodoActions, dispatch)})
+)
 export default class App extends React.Component {
-	constructor(){
-		super();
-		this.state = {
-			todos : [],
-			value : '',
-			delValue : ''
-		};
-	}
-	render(){
-		const {fillbox,content} = style;
-		return (
-			<div className={fillbox}>
-				<input type="textbox" onChange={this.update.bind(this)} />
-				<button type="button" onClick={this.pushTodo.bind(this)}>Add</button>
-				<TodoList todos={this.state.todos} />
-			</div>
-		);
-	}
+    constructor(){
+        super();
+        this.state = {
+            value : '',
+            delValue : ''
+        };
+    }
+    componentDidMount(){
+        this.props.actions.fetchToDo();
+        console.log('component did mount');
+    }
 
-	update(e){
-		this.setState({value:e.target.value});
-	}
+    render(){
+        return (
+            <div className="fillbox">
+                <br/>
+                <h1>Todo List 2</h1>
+                {(this.props.isFetching)?<p>Loading</p>:false}
+                <AddList addToDoItem={this.addToDoItem.bind(this)}/>
+                <TodoList todos={this.props.todos} />
+                <Footer />
+            </div>
+        );
+    }
 
-	pushTodo(){
-		this.setState({todos:[...this.state.todos, this.state.value]});
-	}
+    addToDoItem(title){
+        this.props.actions.addToDo(title);
+    }
 }
 
-export default App
+/*
+function mapStateToProps(state){
+    return {
+        ...state.todo
+    };
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        actions: bindActionCreators(TodoActions, dispatch)
+    }
+}*/

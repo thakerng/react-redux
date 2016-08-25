@@ -1,17 +1,15 @@
-body{
-	background-color: #2a292a;
+html, body{
+	background-color: #4c4845 !important;
 	margin: 0;
+    height: 100%;
 }
 
-button{
-	color: red;
-}
-
-.content{
-	width: 70%;
+:global(.content) {
+	width: 80%;
 	margin: auto;
-	background-color: #4c4845; 
-	height: auto;
+	background-color: #33b7b2;
+	height: auto !important;
+    min-height: 100%;
 }
 
 input{
@@ -20,8 +18,52 @@ input{
 	margin: 25px auto;
 }
 
-.fillbox{
+:global(.fillbox) {
 	width: 50%;
-	color: red;
+    margin: auto;
+}
+:global(.form-control) {
+    width: 87% !important;
+    display: inline-block !important;
 }
 
+:global(.btn-primary) {
+    margin: 20px 0px 20px 20px !important;
+}
+
+:global(.btn-xs){
+    background-color: #b73338 ;
+    float: right ;
+    margin-top: 10px;
+}
+
+input[type=checkbox]{
+    width: 6% ;
+    display: inline-block !important;
+    margin: 15px 0px !important;
+}
+
+li{
+    opacity: 1;
+    color :#33b7b2;
+    padding:5px;
+
+}
+li:nth-child(1){
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+li:nth-child(even) {
+    background: #565656;
+}
+li:nth-child(odd) {
+    background: #3d3d3d;
+}
+li:nth-last-child(1){
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+ul{
+    padding-left: 0px;
+    padding-bottom: 15px;
+}

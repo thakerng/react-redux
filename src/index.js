@@ -1,5 +1,18 @@
+import './polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/app';
+import {Provider} from 'react-redux';
+import configureStore from './store/configureStore';
+import Routers from './routers';
+const store = configureStore();
 
-ReactDOM.render(<App />, document.getElementById('app'));
+/* 66 */
+ReactDOM.render(
+  <Provider store={store}>
+    <Routers />
+  </Provider>
+  , document.getElementById('root'));
+
+/**
+
+ **/
